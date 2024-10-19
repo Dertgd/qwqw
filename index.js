@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // Пример данных курсов
         const courses = [
             { name: "Курс по Python", hashtags: ["python", "программирование"], links: "link1" },
-            { name: "Основы HTML", hashtags: ["html", "веб"], links: "link2" },
             // Добавьте больше курсов по необходимости
         ];
 
