@@ -1,207 +1,66 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    background-color: #f4f4f4;
 }
 
 .container {
     width: 100%;
-    max-width: 400px;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.welcome-container,
-.course-container,
-.explore-container,
-.statistics-container,
-.course-info-container,
-.contact-container {
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
     text-align: center;
-    transition: opacity 0.3s;
-    margin-bottom: 20px;
 }
 
-h1 {
-    font-size: 24px;
-    color: #0078ff;
-    margin-bottom: 20px;
-}
-
-.welcome-image {
-    width: 100%;
-    max-height: 200px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.welcome-description {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-textarea {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: #f9f9f9;
-    color: #333;
-    transition: border-color 0.3s;
-    resize: none;
-    height: 100px;
-}
-
-textarea:focus {
-    border-color: #0078ff;
-    outline: none;
-}
-
-input[type="text"],
-input[type="url"] {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: #f9f9f9;
-    color: #333;
-    transition: border-color 0.3s;
-}
-
-input[type="text"]:focus,
-input[type="url"]:focus {
-    border-color: #0078ff;
-    outline: none;
-}
-
-.btn {
-    background-color: #0078ff;
-    color: #ffffff;
+button {
+    background: #5cb85c;
     border: none;
-    border-radius: 8px;
+    color: white;
     padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    margin-top: 10px;
 }
 
-.btn:hover {
-    background-color: #005bb5;
+button:hover {
+    background: #4cae4c;
 }
 
-.course-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.course-item {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 15px;
-    width: 100%;
+input[type="text"] {
+    padding: 10px;
+    width: calc(100% - 22px);
     margin: 10px 0;
-    text-align: left;
-    background-color: #f9f9f9;
-    transition: box-shadow 0.3s;
 }
 
-.course-item:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+#courseFormContainer,
+#statisticsContainer,
+#exploreContainer,
+#contactContainer {
+    display: none;
 }
 
-.selected-topic {
-    margin: 10px 0;
-    font-weight: bold;
+.welcome-container {
+    display: block;
 }
 
 .topic-list {
-    text-align: left;
-}
-
-.topic-list ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
 .topic-list li {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 5px 0;
     cursor: pointer;
-    transition: background-color 0.3s;
+    padding: 5px;
+    background: #ddd;
 }
 
 .topic-list li:hover {
-    background-color: #e0f7fa;
-}
-
-.course-info-title {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.course-info-description {
-    margin-bottom: 10px;
-}
-
-.styled-links {
-    color: #0078ff;
-    text-decoration: underline;
-}
-
-.close-btn {
-    background-color: #ff4d4d;
-}
-
-.close-btn:hover {
-    background-color: #ff1a1a;
-}
-
-.list-message {
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: #777;
-}
-
-.slider-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.developer-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 15px;
-    width: 100%;
-    background-color: #f9f9f9;
-}
-
-.slider-controls {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-#sliderCounter {
-    margin: 0 10px;
+    background: #ccc;
 }
