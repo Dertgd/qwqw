@@ -1,101 +1,130 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const userId = Telegram.WebApp.initDataUnsafe.user.id;
-    const username = Telegram.WebApp.initDataUnsafe.user.username;
+document.addEventListener("DOMContentLoaded", function() {
+    const welcomeContainer = document.getElementById("welcomeContainer");
+    const exploreContainer = document.getElementById("exploreContainer");
+    const courseFormContainer = document.getElementById("courseFormContainer");
+    const statisticsContainer = document.getElementById("statisticsContainer");
+    const courseInfoContainer = document.getElementById("courseInfoContainer");
+    const contactContainer = document.getElementById("contactContainer");
 
-    document.getElementById('userId').textContent = userId;
-    document.getElementById('username').textContent = username;
+    const exploreCoursesBtn = document.getElementById("exploreCourses");
+    const createCourseBtn = document.getElementById("createCourse");
+    const viewStatisticsBtn = document.getElementById("viewStatistics");
+    const contactUsBtn = document.getElementById("contactUsBtn");
+    const closeExploreBtn = document.getElementById("closeExplore");
+    const closeStatisticsBtn = document.getElementById("closeStatistics");
+    const closeContactBtn = document.getElementById("closeContact");
 
-    let createdCoursesCount = 0;
-    let completedCoursesCount = 0;
-
-    // Показать форму создания курса
-    document.getElementById('createCourse').addEventListener('click', function () {
-        document.getElementById('welcomeContainer').style.display = 'none';
-        document.getElementById('courseFormContainer').style.display = 'block';
+    exploreCoursesBtn.addEventListener("click", function() {
+        welcomeContainer.style.display = "none";
+        exploreContainer.style.display = "block";
+        loadCourses(); // Функция для загрузки курсов
     });
 
-    // Показать контейнер для исследования курсов
-    document.getElementById('exploreCourses').addEventListener('click', function () {
-        document.getElementById('welcomeContainer').style.display = 'none';
-        document.getElementById('exploreContainer').style.display = 'block';
+    createCourseBtn.addEventListener("click", function() {
+        welcomeContainer.style.display = "none";
+        courseFormContainer.style.display = "block";
     });
 
-    // Поиск курсов
-    document.getElementById('searchButton').addEventListener('click', function () {
-        const query = document.getElementById('searchCourse').value.toLowerCase();
-        // Логика фильтрации курсов здесь
+    viewStatisticsBtn.addEventListener("click", function() {
+        welcomeContainer.style.display = "none";
+        statisticsContainer.style.display = "block";
+        displayStatistics(); // Функция для отображения статистики
     });
 
-    // Создание курса
-    document.getElementById('courseForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-        createdCoursesCount++;
-        document.getElementById('createdCourses').textContent = createdCoursesCount;
-
-        // Логика для сохранения курса
-        document.getElementById('courseFormContainer').style.display = 'none';
-        document.getElementById('welcomeContainer').style.display = 'block';
+    contactUsBtn.addEventListener("click", function() {
+        welcomeContainer.style.display = "none";
+        contactContainer.style.display = "block";
     });
 
-    // Завершение курса
-    document.getElementById('markAsDone').addEventListener('click', function () {
-        completedCoursesCount++;
-        document.getElementById('completedCourses').textContent = completedCoursesCount;
-        // Логика для обработки завершения курса
+    closeExploreBtn.addEventListener("click", function() {
+        exploreContainer.style.display = "none";
+        welcomeContainer.style.display = "block";
     });
 
-    // Показать статистику
-    document.getElementById('viewStatistics').addEventListener('click', function () {
-        document.getElementById('welcomeContainer').style.display = 'none';
-        document.getElementById('statisticsContainer').style.display = 'block';
+    closeStatisticsBtn.addEventListener("click", function() {
+        statisticsContainer.style.display = "none";
+        welcomeContainer.style.display = "block";
     });
 
-    // Закрыть статистику
-    document.getElementById('closeStatistics').addEventListener('click', function () {
-        document.getElementById('statisticsContainer').style.display = 'none';
-        document.getElementById('welcomeContainer').style.display = 'block';
+    closeContactBtn.addEventListener("click", function() {
+        contactContainer.style.display = "none";
+        welcomeContainer.style.display = "block";
     });
 
-    // Отмена создания курса
-    document.getElementById('cancel').addEventListener('click', function () {
-        document.getElementById('courseFormContainer').style.display = 'none';
-        document.getElementById('welcomeContainer').style.display = 'block';
+    const courseListContainer = document.getElementById("courseList");
+    const searchButton = document.getElementById("searchButton");
+    const searchCourseInput = document.getElementById("searchCourse");
+
+    searchButton.addEventListener("click", function() {
+        const searchTerm = searchCourseInput.value.toLowerCase();
+        filterCourses(searchTerm);
     });
 
-    // Выбор темы
-    document.getElementById('chooseTopic').addEventListener('click', function () {
-        document.getElementById('topicList').style.display = 'block';
-    });
+    function loadCourses() {
+        // Пример данных курсов
+        const courses = [
+            { name: "Курс по Python", hashtags: ["python", "программирование"], links: "link1" },
+            { name: "Основы HTML", hashtags: ["html", "веб"], links: "link2" },
+            // Добавьте больше курсов по необходимости
+        ];
 
-    document.querySelectorAll('.topic-list li').forEach(function (item) {
-        item.addEventListener('click', function () {
-            const selectedTopic = item.dataset.topic;
-            document.getElementById('selectedTopic').textContent = `Выбранная тема: ${selectedTopic}`;
-            document.getElementById('topicList').style.display = 'none';
+        // Отображаем курсы
+        courses.forEach(course => {
+            const courseDiv = document.createElement("div");
+            courseDiv.innerHTML = `<h3>${course.name}</h3><p>Хэштеги: ${course.hashtags.join(", ")}</p><button class="btn view-course">Посмотреть курс</button>`;
+            courseListContainer.appendChild(courseDiv);
         });
+    }
+
+    function filterCourses(searchTerm) {
+        const courseItems = courseListContainer.getElementsByTagName("div");
+        for (let i = 0; i < courseItems.length; i++) {
+            const courseName = courseItems[i].textContent.toLowerCase();
+            if (courseName.includes(searchTerm)) {
+                courseItems[i].style.display = "block";
+            } else {
+                courseItems[i].style.display = "none";
+            }
+        }
+    }
+
+    const chooseTopicBtn = document.getElementById("chooseTopic");
+    const topicList = document.getElementById("topicList");
+    const selectedTopicDiv = document.getElementById("selectedTopic");
+
+    chooseTopicBtn.addEventListener("click", function() {
+        topicList.style.display = "block";
     });
 
-    // Закрыть исследование курсов
-    document.getElementById('closeExplore').addEventListener('click', function () {
-        document.getElementById('exploreContainer').style.display = 'none';
-        document.getElementById('welcomeContainer').style.display = 'block';
+    topicList.addEventListener("click", function(event) {
+        if (event.target.tagName === "LI") {
+            const selectedTopic = event.target.getAttribute("data-topic");
+            selectedTopicDiv.textContent = `Вы выбрали тему: ${selectedTopic}`;
+            topicList.style.display = "none";
+        }
     });
 
-    // Закрыть информацию о курсе
-    document.getElementById('cancelCourseInfo').addEventListener('click', function () {
-        document.getElementById('courseInfoContainer').style.display = 'none';
-        document.getElementById('exploreContainer').style.display = 'block';
+    const cancelBtn = document.getElementById("cancel");
+    cancelBtn.addEventListener("click", function() {
+        courseFormContainer.style.display = "none";
+        welcomeContainer.style.display = "block";
     });
 
-    // Контактная информация
-    document.getElementById('contactUsBtn').addEventListener('click', function () {
-        document.getElementById('welcomeContainer').style.display = 'none';
-        document.getElementById('contactContainer').style.display = 'block';
+    const markAsDoneBtn = document.getElementById("markAsDone");
+    markAsDoneBtn.addEventListener("click", function() {
+        // Обработка завершения курса
     });
 
-    // Закрыть контакт
-    document.getElementById('closeContact').addEventListener('click', function () {
-        document.getElementById('contactContainer').style.display = 'none';
-        document.getElementById('welcomeContainer').style.display = 'block';
+    const cancelCourseInfoBtn = document.getElementById("cancelCourseInfo");
+    cancelCourseInfoBtn.addEventListener("click", function() {
+        courseInfoContainer.style.display = "none";
+        welcomeContainer.style.display = "block";
     });
+
+    // Функция для отображения статистики
+    function displayStatistics() {
+        document.getElementById("username").textContent = "Имя пользователя"; // Замените на фактическое имя
+        document.getElementById("createdCourses").textContent = "0"; // Получите актуальные данные
+        document.getElementById("completedCourses").textContent = "0"; // Получите актуальные данные
+    }
 });
