@@ -111,120 +111,53 @@ input:focus {
     padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 5px 0;
-}
-
-.close-btn:hover {
-    background-color: #005bb5;
-}
-
-.course-list {
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.course-item {
-    margin-bottom: 15px;
-}
-
-.course-info-container {
-    margin-top: 20px;
-}
-
-.course-info-title {
-    font-size: 20px;
-    color: #333;
-}
-
-.course-info-description {
-    font-size: 16px;
-    color: #555;
-}
-
-.course-info-links {
-    font-size: 16px;
     margin-top: 10px;
-}
-
-.styled-links a {
-    display: inline-block;
-    margin-right: 10px;
-    padding: 8px 12px;
-    background-color: #0078ff;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.styled-links a:hover {
-    background-color: #005bb5;
 }
 
 .selected-topic {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.topic-list {
     margin-top: 10px;
-    font-weight: bold;
+    text-align: left;
 }
 
-#searchCourse {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-right: 10px;
+.topic-list ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.contact-container .btn {
-    width: 30%;
-}
-
-.cursor {
+.topic-list li {
     cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s;
 }
 
-.search-btn {
-    padding: 10px;
+.topic-list li:hover {
     background-color: #0078ff;
     color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
 }
 
-.statistics-container {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    margin-bottom: 20px;
+.explore-title {
+    margin-top: 10px;
 }
 
-.user-info {
-    font-weight: bold;
+#courseListContainer {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.styled-links {
     color: #0078ff;
 }
 
-.slider-container {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.developer-card {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.slider-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#sliderCounter {
-    font-size: 16px;
-    color: #0078ff;
+.styled-links:hover {
+    text-decoration: underline;
 }
