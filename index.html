@@ -64,7 +64,15 @@
         </div>
         <div class="list-container" id="courseListContainer">
             <div class="list-message"></div>
-            <div class="course-list" id="courseList" style="overflow-y: auto; max-height: 300px;"></div>
+            <div class="course-list" id="courseList" style="overflow-y: auto; max-height: 300px;">
+                <div class="course-item" id="courseNewton">
+                    <h3>Законы Ньютона</h3>
+                    <p>Тема: Физика</p>
+                    <p>Описание: Законы движения.</p>
+                    <p>Хэштеги: #Ньютон, #Физика, #Законы</p>
+                    <button class="btn" onclick="showCourseDetails(1)">Подробнее</button>
+                </div>
+            </div>
         </div>
         <button class="btn" id="closeExplore">Закрыть</button>
     </div>
@@ -73,18 +81,21 @@
         <h3>Статистика</h3>
         <p id="userIdDisplay">ID пользователя: <span class="user-info" id="userId">{userId}</span></p>
         <p id="usernameDisplay">Имя пользователя: <span class="user-info" id="username">{username}</span></p>
-        <p>Создано курсов: <span id="createdCourses">1</span></p>
+        <p>Создано курсов: <span id="createdCourses">0</span></p>
         <p>Выполнено курсов: <span id="completedCourses">0</span></p>
         <button id="closeStatistics" class="btn close-btn">Закрыть</button>
     </div>
 
     <div class="course-info-container" id="courseInfoContainer" style="display: none;">
         <h1 class="course-info-title" id="courseInfoTitle">Законы Ньютона</h1>
-        <p class="course-info-description" id="courseInfoDescription"> 
-            Законы Ньютона описывают движение объектов. 
-            1. Первый закон (закон инерции): тело остается в состоянии покоя или равномерного движения, пока не будет воздействие на него.
-            2. Второй закон (закон ускорения): сила, действующая на объект, равна произведению его массы на ускорение.
-            3. Третий закон (закон действия и противодействия): на каждое действие есть равное и противоположное противодействие.
+        <p class="course-info-description" id="courseInfoDescription">
+            Законы Ньютона - это три основных закона механики, которые описывают движение тел и взаимодействие между ними.
+            <br><br> 
+            1. Первый закон: Тело сохраняет состояние покоя или равномерного прямолинейного движения, если на него не действуют внешние силы.
+            <br><br> 
+            2. Второй закон: Ускорение тела прямо пропорционально действующей на него силе и обратно пропорционально массе.
+            <br><br> 
+            3. Третий закон: На каждое действие есть равное и противоположное противодействие.
         </p>
         <p class="course-info-links">Ссылки на видео: <span id="courseInfoLinks" class="styled-links"></span></p>
         <p>Создатель: <span id="courseCreator">{username}</span></p>
